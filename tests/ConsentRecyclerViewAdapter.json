@@ -1,0 +1,116 @@
+[
+  [
+    {
+      "id": 1,
+      "title": "Insecure Logging Detection",
+      "objective": "Ensure that no sensitive information is logged.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Monitor the logcat output for any sensitive information such as user credentials, API keys, or personal data.",
+        "2. Perform various actions in the app that might trigger logging, such as login, data retrieval, and media playback.",
+        "3. Review the logcat output for any sensitive information."
+      ],
+      "expected_results": "No sensitive information should be present in the logcat output.",
+      "severity": "High",
+      "recommended_mitigation": "Use a logging framework that filters out sensitive information or avoid logging sensitive data altogether."
+    },
+    {
+      "id": 2,
+      "title": "Insecure Intent Handling Validation",
+      "objective": "Validate intents to prevent injection attacks or unauthorized actions.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Create a test intent with various data and actions.",
+        "2. Send the test intent to the app and observe the behavior.",
+        "3. Check if the app properly validates the intent and handles it securely."
+      ],
+      "expected_results": "The app should only accept and process valid intents.",
+      "severity": "High",
+      "recommended_mitigation": "Implement intent validation to ensure only trusted intents are processed."
+    },
+    {
+      "id": 3,
+      "title": "Insecure Database Reference Check",
+      "objective": "Avoid hardcoding database URLs and storage references.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Review the app's source code for any hardcoded database URLs or storage references.",
+        "2. Check if the app retrieves these references securely.",
+        "3. Ensure that the references are not exposed in the logs or other accessible areas."
+      ],
+      "expected_results": "No hardcoded database URLs or storage references should be found in the source code.",
+      "severity": "High",
+      "recommended_mitigation": "Use secure methods to retrieve database and storage references, such as environment variables or secure configuration files."
+    },
+    {
+      "id": 4,
+      "title": "Potential Denial of Service (DoS) Prevention",
+      "objective": "Validate media sources before playing with ExoPlayer.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Provide various media sources to the app, including invalid or malicious ones.",
+        "2. Observe the app's behavior when attempting to play these media sources.",
+        "3. Check if the app validates the media sources before playing."
+      ],
+      "expected_results": "The app should only play valid media sources and handle invalid or malicious sources gracefully.",
+      "severity": "High",
+      "recommended_mitigation": "Implement media source validation to ensure only trusted sources are played."
+    },
+    {
+      "id": 5,
+      "title": "Insecure Data Handling Validation",
+      "objective": "Validate data from DataSnapshot to prevent injection attacks or other security issues.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Simulate data retrieval from Firebase and provide various data inputs.",
+        "2. Observe how the app handles the data from DataSnapshot.",
+        "3. Check if the app validates the data before processing."
+      ],
+      "expected_results": "The app should validate and sanitize data from DataSnapshot before processing.",
+      "severity": "High",
+      "recommended_mitigation": "Implement data validation and sanitization for all data retrieved from Firebase."
+    },
+    {
+      "id": 6,
+      "title": "Insecure Firebase Usage Check",
+      "objective": "Implement proper security rules and authentication for Firebase usage.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Review the Firebase security rules and authentication mechanisms.",
+        "2. Attempt to access Firebase resources without proper authentication.",
+        "3. Check if the app enforces proper security rules and authentication."
+      ],
+      "expected_results": "The app should enforce proper security rules and authentication for Firebase usage.",
+      "severity": "High",
+      "recommended_mitigation": "Implement strong security rules and authentication mechanisms for Firebase usage."
+    },
+    {
+      "id": 7,
+      "title": "Insecure Data Storage Validation",
+      "objective": "Validate data from EditText to prevent injection attacks or other security issues.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Input various data into EditText fields, including invalid or malicious data.",
+        "2. Observe how the app handles the data from EditText.",
+        "3. Check if the app validates the data before processing."
+      ],
+      "expected_results": "The app should validate and sanitize data from EditText before processing.",
+      "severity": "High",
+      "recommended_mitigation": "Implement data validation and sanitization for all data input through EditText."
+    },
+    {
+      "id": 8,
+      "title": "Insecure UI Elements Validation",
+      "objective": "Validate data from ImageButton, TextView, and other UI elements to prevent injection attacks or other security issues.",
+      "preconditions": "The app must be running in a test environment.",
+      "non_exploit_steps": [
+        "1. Interact with various UI elements, including ImageButton and TextView, with different data inputs.",
+        "2. Observe how the app handles the data from these UI elements.",
+        "3. Check if the app validates the data before processing."
+      ],
+      "expected_results": "The app should validate and sanitize data from all UI elements before processing.",
+      "severity": "High",
+      "recommended_mitigation": "Implement data validation and sanitization for all data input through UI elements."
+    }
+  ]
+]
